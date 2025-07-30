@@ -161,16 +161,19 @@
 
   <div class="popup" id="popup"></div>
   <canvas id="confetti"></canvas>
-  <audio autoplay loop>
-    <source src="sahiba.mp3" type="audio/mp3">
-  </audio>
+  <audio id="bgAudio" loop>
+  <source src="sahiba.mp3" type="audio/mp3">
+</audio>
+<script>
+  window.addEventListener('click', () => {
+    const audio = document.getElementById('bgAudio');
+    if (audio.paused) audio.play();
+  });
+</script>
 
   <!-- Floating Images near bordered containers only -->
-  <img class="floating" src="lily_1.jpg" style="left:5%; bottom:0; width:60px;">
-  <img class="floating" src="lily_2.jpg" style="left:15%; bottom:0; width:60px; animation-delay:2s;">
-  <img class="floating" src="lavender_1.jpg" style="left:25%; bottom:0; width:60px; animation-delay:4s;">
-  <img class="floating" src="lavender_2.jpg" style="left:35%; bottom:0; width:60px; animation-delay:6s;">
-  <img class="floating" src="kuromi.jpg" style="left:45%; bottom:0; width:60px; animation-delay:8s;">
+
+  <img class="floating" src="kuromi.jpg" style="left:45%; bottom:0; width:60px; animation-delay:2s;">
   <div class="floating" style="left:55%; bottom:0; font-size:100px; animation-delay:1s;">🔪</div>
   <div class="floating" style="left:65%; bottom:0; font-size:100px; animation-delay:3s;">🔫</div>
   <div class="floating" style="left:75%; bottom:0; font-size:100px; animation-delay:5s;">💜</div>
