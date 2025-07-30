@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Girlfriend Day</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(#fff0f5, #ffe4f0);
+      color: #333;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-top: 20px;
+    }
+    .blinking-heart {
+      color: lavender;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+    .slideshow {
+      max-width: 400px;
+      margin: 20px auto;
+      position: relative;
+      height: 500px;
+    }
+    .slide {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .love-note {
+      margin-top: 40px;
+    }
+    .sections {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 30px 0;
+      gap: 20px;
+    }
+    .section-box {
+      border: 2px solid #e3b4f0;
+      border-radius: 20px;
+      padding: 20px;
+      width: 300px;
+      background: #fffafc;
+    }
+    .floating {
+      position: fixed;
+      animation: float 10s linear infinite;
+      z-index: 0;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) translateX(0); }
+      100% { transform: translateY(-100vh) translateX(50vw); }
+    }
+    .yes-no-buttons {
+      margin-top: 40px;
+    }
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      z-index: 999;
+      display: none;
+    }
+    #confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hey Cutu <span class="blinking-heart">💜</span> Happy Girlfriend Day!</h1>
+
+  <div class="slideshow">
+    <img src="image_1.jpg" class="slide" style="opacity:1;">
+    <img src="image_2.jpg" class="slide" style="opacity:0;">
+    <img src="image_3.jpg" class="slide" style="opacity:0;">
+    <img src="image_4.jpg" class="slide" style="opacity:0;">
+    <img src="image_5.jpg" class="slide" style="opacity:0;">
+    <img src="image_6.jpg" class="slide" style="opacity:0;">
+  </div>
+
+  <div class="love-note">
+    <h2>You make life wayyy cuter.</h2>
+    <p>From the way you laugh, to the way you talk, to how you look and when you get shy when I compliment you — you’re everything I adore 💕</p>
+  </div>
+
+  <div class="sections">
+    <div class="section-box">
+      <h3>Things I love about you</h3>
+      <p>🥺 Your cute side-eye glare when you pretend to be mad 😘</p>
+      <p>😂 The way you look at me when I make you laugh</p>
+      <p>💫 Your softness, your chaos, your Cutu-ness</p>
+      <p>🍑 Your Butt</p>
+      <p>😊 Your Cheeks</p>
+      <p>🤣 Your Laugh</p>
+      <p>🏃‍♀️ The way you run</p>
+      <p>🪞 The way you look in the mirror when you dress</p>
+      <p>🧠 Your Intelligence</p>
+      <p>🌟 Everything about you basically</p>
+    </div>
+    <div class="section-box">
+      <h3>Things to do</h3>
+      <p>🍽️ Breakfast in bed, food for you, you for me</p>
+      <p>🛍️ Shopping, yes my credit card all yours babe</p>
+      <p>🍷 Dinner at Jamming Goat at 8:30 (already booked)</p>
+      <p>🚶 Roam around Indiranagar — maybe Smoor? maybe Glen's?</p>
+      <p>🎁 Anything you want for your special day Cutu</p>
+    </div>
+  </div>
+
+  <div class="yes-no-buttons">
+    <p>Will you go out with me today? 💖</p>
+    <button onclick="sayYes()">Yes</button>
+    <button onclick="sayNo()">No</button>
+  </div>
+
+  <div class="popup" id="popup"></div>
+  <canvas id="confetti"></canvas>
+  <audio autoplay loop>
+    <source src="Sahiba.mp3" type="audio/mpeg">
+  </audio>
+
+  <img class="floating" src="lily_1.png" style="left:5%; animation-delay: 0s;">
+  <img class="floating" src="lily_2.png" style="left:15%; animation-delay: 2s;">
+  <img class="floating" src="lavender_1.png" style="left:25%; animation-delay: 4s;">
+  <img class="floating" src="lavender_2.png" style="left:35%; animation-delay: 6s;">
+  <img class="floating" src="kuromi.png" style="left:45%; animation-delay: 8s;">
+  <div class="floating" style="left:55%; animation-delay: 1s;">🔪</div>
+  <div class="floating" style="left:65%; animation-delay: 3s;">🔫</div>
+  <div class="floating" style="left:75%; animation-delay: 5s;">💜</div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let index = 0;
+    setInterval(() => {
+      slides.forEach((img, i) => img.style.opacity = i === index ? "1" : "0");
+      index = (index + 1) % slides.length;
+    }, 2500);
+
+    function sayYes() {
+      document.getElementById("popup").innerText = "YAYYYY! Can't wait 💖💖💖";
+      document.getElementById("popup").style.display = "block";
+      launchConfetti();
+    }
+
+    function sayNo() {
+      alert("booo booo 😢 you can't say no today!");
+    }
+
+    function launchConfetti() {
+      const duration = 3 * 1000;
+      const end = Date.now() + duration;
+      const colors = ['#bb0000', '#ffffff', '#ff69b4', '#dda0dd'];
+      const canvas = document.getElementById('confetti');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const particles = [];
+      for (let i = 0; i < 300; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 8 + 4,
+          c: colors[Math.floor(Math.random() * colors.length)],
+          s: Math.random() * 4 + 1
+        });
+      }
+      const interval = setInterval(() => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let p of particles) {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, 2 * Math.PI);
+          ctx.fillStyle = p.c;
+          ctx.fill();
+          p.y += p.s;
+          if (p.y > canvas.height) p.y = 0;
+        }
+        if (Date.now() > end) clearInterval(interval);
+      }, 30);
+    }
+  </script>
+</body>
+</html>
