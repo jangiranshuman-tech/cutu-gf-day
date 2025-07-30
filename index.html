@@ -43,7 +43,7 @@
       transition: opacity 1s ease-in-out;
     }
     .love-note {
-      margin-top: 40px;
+      margin-top: 20px;
     }
     .sections {
       display: flex;
@@ -61,7 +61,7 @@
     }
     .floating {
       position: fixed;
-      animation: float 10s linear infinite;
+      animation: float 15s linear infinite;
       z-index: 0;
     }
     @keyframes float {
@@ -147,14 +147,14 @@
     <source src="sahiba.mp3" type="audio/mpeg">
   </audio>
 
-  <img class="floating" src="lily_1.jpg" style="left:5%; animation-delay: 0s;">
-  <img class="floating" src="lily_2.jpg" style="left:15%; animation-delay: 2s;">
-  <img class="floating" src="lavender_1.jpg" style="left:25%; animation-delay: 4s;">
-  <img class="floating" src="lavender_2.jpg" style="left:35%; animation-delay: 6s;">
-  <img class="floating" src="kuromi.jpg" style="left:45%; animation-delay: 8s;">
-  <div class="floating" style="left:55%; animation-delay: 1s;">🔪</div>
-  <div class="floating" style="left:65%; animation-delay: 3s;">🔫</div>
-  <div class="floating" style="left:75%; animation-delay: 5s;">💜</div>
+  <img class="floating" src="lily_1.jpg" style="left:5%; animation-delay: 0s; width: 60px;">
+  <img class="floating" src="lily_2.jpg" style="left:15%; animation-delay: 2s; width: 60px;">
+  <img class="floating" src="lavender_1.jpg" style="left:25%; animation-delay: 4s; width: 60px;">
+  <img class="floating" src="lavender_2.jpg" style="left:35%; animation-delay: 6s; width: 60px;">
+  <img class="floating" src="kuromi.jpg" style="left:45%; animation-delay: 8s; width: 60px;">
+  <div class="floating" style="left:55%; animation-delay: 1s; font-size: 100px;">🔪</div>
+  <div class="floating" style="left:65%; animation-delay: 3s; font-size: 100px;">🔫</div>
+  <div class="floating" style="left:75%; animation-delay: 5s; font-size: 100px;">💜</div>
 
   <script>
     const slides = document.querySelectorAll('.slide');
@@ -175,7 +175,7 @@
     }
 
     function launchConfetti() {
-      const duration = 3 * 1000;
+      const duration = 4 * 1000;
       const end = Date.now() + duration;
       const colors = ['#bb0000', '#ffffff', '#ff69b4', '#dda0dd'];
       const canvas = document.getElementById('confetti');
@@ -183,13 +183,13 @@
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       const particles = [];
-      for (let i = 0; i < 300; i++) {
+      for (let i = 0; i < 600; i++) {
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          r: Math.random() * 8 + 4,
+          r: Math.random() * 10 + 6,
           c: colors[Math.floor(Math.random() * colors.length)],
-          s: Math.random() * 4 + 1
+          s: Math.random() * 6 + 2
         });
       }
       const interval = setInterval(() => {
